@@ -1,3 +1,3 @@
 export default function App() {
-	return <>126FM</>;
+  return <>126FM</>;
 }
