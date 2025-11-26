@@ -2,7 +2,7 @@ import classes from "@/styles/animated-text.module.css";
 import clsx from "clsx";
 import { memo, useEffect, useRef, type ComponentProps } from "react";
 
-type Props = ComponentProps<"div"> & {
+type Props = ComponentProps<"pre"> & {
   text: string;
   interval: number;
 };
@@ -11,7 +11,7 @@ const AnimatedText = memo((props: Props) => {
   const { text, interval, className } = props;
 
   const isMountedRef = useRef(true);
-  const containerRef = useRef<null | HTMLDivElement>(null);
+  const containerRef = useRef<null | HTMLPreElement>(null);
   const timeoutIdRef = useRef<null | ReturnType<typeof setTimeout>>(null);
 
   useEffect(() => {
@@ -28,7 +28,6 @@ const AnimatedText = memo((props: Props) => {
 
     const type = () => {
       if (!isMounted) return;
-
       if (idx >= text.length) return;
 
       message += text.charAt(idx);
@@ -47,7 +46,7 @@ const AnimatedText = memo((props: Props) => {
   }, [interval, text]);
 
   return (
-    <div
+    <pre
       ref={containerRef}
       className={clsx(classes["root"], className)}
     />
