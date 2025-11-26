@@ -8,7 +8,7 @@ type Props = ComponentProps<"pre"> & {
 };
 
 const AnimatedText = memo((props: Props) => {
-  const { text, interval, className } = props;
+  const { text, interval, className, ...rest } = props;
 
   const isMountedRef = useRef(true);
   const containerRef = useRef<null | HTMLPreElement>(null);
@@ -23,21 +23,22 @@ const AnimatedText = memo((props: Props) => {
     if (!text.length) return;
     if (interval <= 0) return;
 
-    let idx = 0;
-    let message = "";
-
-    const type = () => {
+    const startTypeAnimation = () => {
       if (!isMounted) return;
-      if (idx >= text.length) return;
 
-      message += text.charAt(idx);
-      container.textContent = message;
+      let idx = 0;
 
-      idx++;
-      timeoutId = setTimeout(type, interval);
+      const type = () => {
+        if (idx >= text.length) return;
+        container.textContent += text.charAt(idx);
+        idx++;
+        timeoutId = setTimeout(type, interval);
+      };
+
+      type();
     };
 
-    requestAnimationFrame(type);
+    startTypeAnimation();
 
     return () => {
       isMounted = false;
@@ -49,6 +50,7 @@ const AnimatedText = memo((props: Props) => {
     <pre
       ref={containerRef}
       className={clsx(classes["root"], className)}
+      {...rest}
     />
   );
 });
