@@ -1,5 +1,7 @@
+import classes from "@/styles/app.module.css";
 import { useState } from "react";
 import AnimatedText from "./components/AnimatedText";
+import LoopingText from "./components/LoopingText";
 
 const App = () => {
   const [counter, setCounter] = useState(0);
@@ -7,6 +9,11 @@ const App = () => {
   return (
     <>
       <h1>126FM</h1>
+
+      <LoopingText
+        className={classes["looping-text"]}
+        text="Meow meow nigga"
+      />
 
       <AnimatedText
         interval={20}
