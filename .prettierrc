@@ -12,5 +12,7 @@
   "htmlWhitespaceSensitivity": "css",
   "jsxSingleQuote": false,
   "singleAttributePerLine": true,
-  "plugins": ["prettier-plugin-organize-imports"]
+  "plugins": [
+    "prettier-plugin-organize-imports"
+  ]
 }
