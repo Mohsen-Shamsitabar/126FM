@@ -1,4 +1,22 @@
 :root {
+  --bgc: #0a0a0a;
+
+  --radio-color: #171717;
+
+  --text-color: #fafafa;
+  --text-color-hover: none;
+  --text-color-active: none;
+
+  --red: #9f0712;
+  --red-hover: none;
+  --red-active: #460809;
+
+  --gray: #262626;
+  --gray-hover: none;
+  --gray-active: #171717;
+
+  /* --- --- --- --- */
+
   font-family:
     system-ui,
     -apple-system,
@@ -28,6 +46,6 @@
 }
 
 body {
-  background-color: #0a0a0a;
-  color: #ffffff;
+  background-color: var(--bgc);
+  color: var(--text-color);
 }

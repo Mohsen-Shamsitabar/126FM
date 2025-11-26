@@ -1,10 +1,10 @@
 .root {
   background: linear-gradient(
     to right,
-    black -10%,
-    white 20%,
-    white 80%,
-    black 110%
+    var(--bgc) -10%,
+    var(--text-color) 20%,
+    var(--text-color) 80%,
+    var(--bgc) 110%
   );
   -webkit-background-clip: text;
   background-clip: text;
