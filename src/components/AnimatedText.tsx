@@ -1,28 +1,30 @@
 import classes from "@/styles/animated-text.module.css";
 import mergeCss from "@/utils/merge-css";
-import * as React from "react";
+import { memo, useEffect, useRef, type ComponentProps } from "react";
 
-type Props = {
+type Props = ComponentProps<"div"> & {
   text: string;
   interval: number;
-  className?: string;
 };
 
-const AnimatedText = (props: Props) => {
+const AnimatedText = memo((props: Props) => {
   const { text, interval, className } = props;
 
-  const containerRef = React.useRef<null | HTMLDivElement>(null);
+  const isMountedRef = useRef(true);
+  const containerRef = useRef<null | HTMLDivElement>(null);
+  const timeoutIdRef = useRef<null | ReturnType<typeof setTimeout>>(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const { current: container } = containerRef;
+    let { current: isMounted } = isMountedRef;
+    let { current: timeoutId } = timeoutIdRef;
+
     if (!container) return;
-    if (text.length === 0) return;
+    if (!text.length) return;
     if (interval <= 0) return;
 
     let idx = 0;
     let message = "";
-    let isMounted = true;
-    let timeoutId: number | null = null;
 
     const type = () => {
       if (!isMounted) return;
@@ -36,7 +38,7 @@ const AnimatedText = (props: Props) => {
       timeoutId = setTimeout(type, interval);
     };
 
-    type();
+    requestAnimationFrame(type);
 
     return () => {
       isMounted = false;
@@ -48,8 +50,8 @@ const AnimatedText = (props: Props) => {
     <div
       className={mergeCss(classes["root"], className)}
       ref={containerRef}
-    ></div>
+    />
   );
-};
+});
 
 export default AnimatedText;
