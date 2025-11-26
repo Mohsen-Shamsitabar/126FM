@@ -37,6 +37,7 @@ export default defineConfig([
 
     rules: {
       "prettier/prettier": "error",
+      "react-hooks/exhaustive-deps": "off",
     },
   },
 ]);

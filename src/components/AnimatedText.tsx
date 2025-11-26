@@ -5,44 +5,50 @@ import { memo, useEffect, useRef, type ComponentProps } from "react";
 type Props = ComponentProps<"pre"> & {
   text: string;
   interval: number;
+  onComplete: () => void;
 };
 
 const AnimatedText = memo((props: Props) => {
-  const { text, interval, className, ...rest } = props;
+  const { text, interval, className, onComplete, ...rest } = props;
 
   const isMountedRef = useRef(true);
-  const containerRef = useRef<null | HTMLPreElement>(null);
-  const timeoutIdRef = useRef<null | ReturnType<typeof setTimeout>>(null);
+  const containerRef = useRef<HTMLPreElement | null>(null);
+  const timeoutIdRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const { current: container } = containerRef;
-    let { current: isMounted } = isMountedRef;
-    let { current: timeoutId } = timeoutIdRef;
 
     if (!container) return;
     if (!text.length) return;
     if (interval <= 0) return;
 
-    const startTypeAnimation = () => {
-      if (!isMounted) return;
+    isMountedRef.current = true;
+    container.textContent = "";
 
-      let idx = 0;
+    let idx = 0;
 
-      const type = () => {
-        if (idx >= text.length) return;
-        container.textContent += text.charAt(idx);
-        idx++;
-        timeoutId = setTimeout(type, interval);
-      };
+    const type = () => {
+      if (!isMountedRef.current) return;
 
-      type();
+      if (idx >= text.length) {
+        onComplete();
+        return;
+      }
+
+      container.textContent += text[idx];
+      idx++;
+
+      timeoutIdRef.current = setTimeout(type, interval);
     };
 
-    startTypeAnimation();
+    type();
 
     return () => {
-      isMounted = false;
-      if (timeoutId) clearTimeout(timeoutId);
+      isMountedRef.current = false;
+
+      if (timeoutIdRef.current) {
+        clearTimeout(timeoutIdRef.current);
+      }
     };
   }, [interval, text]);
 
