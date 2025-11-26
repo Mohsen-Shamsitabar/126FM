@@ -1,5 +1,5 @@
 import classes from "@/styles/animated-text.module.css";
-import mergeCss from "@/utils/merge-css";
+import clsx from "clsx";
 import { memo, useEffect, useRef, type ComponentProps } from "react";
 
 type Props = ComponentProps<"div"> & {
@@ -48,8 +48,8 @@ const AnimatedText = memo((props: Props) => {
 
   return (
     <div
-      className={mergeCss(classes["root"], className)}
       ref={containerRef}
+      className={clsx(classes["root"], className)}
     />
   );
 });
