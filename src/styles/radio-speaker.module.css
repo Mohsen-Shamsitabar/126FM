@@ -1,0 +1,7 @@
+.root {
+  background-image: radial-gradient(gray 20%, transparent 21%);
+  background-repeat: repeat;
+
+  /* size */
+  background-size: 1rem 1rem;
+}

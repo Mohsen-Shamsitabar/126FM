@@ -2,6 +2,7 @@ import classes from "@/styles/app.module.css";
 import { useState } from "react";
 import AnimatedText from "./components/AnimatedText";
 import LoopingText from "./components/LoopingText";
+import RadioSpeaker from "./components/RadioSpeaker";
 
 const App = () => {
   const [counter, setCounter] = useState(0);
@@ -9,6 +10,8 @@ const App = () => {
   return (
     <>
       <h1>126FM</h1>
+
+      <RadioSpeaker className={classes["radio-speaker"]} />
 
       <LoopingText
         className={classes["looping-text"]}
