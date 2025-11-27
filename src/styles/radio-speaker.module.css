@@ -1,7 +1,19 @@
 .root {
-  background-image: radial-gradient(var(--radio-color) 20%, transparent 21%);
-  background-repeat: repeat;
+  --radio-speaker-height: 3rem;
+  --radio-speaker-dot-color: var(--gray-active);
+  --radio-speaker-dot-size: 1rem 1rem;
+  --radio-speaker-border-radius: 0.5rem;
 
-  /* size */
-  background-size: 1rem 1rem;
+  height: var(--radio-speaker-height);
+
+  background-image: radial-gradient(
+    circle,
+    var(--radio-speaker-dot-color) 25%,
+    transparent 25%
+  );
+  background-repeat: repeat;
+  background-size: var(--radio-speaker-dot-size);
+
+  border-bottom-left-radius: var(--radio-speaker-border-radius);
+  border-bottom-right-radius: var(--radio-speaker-border-radius);
 }

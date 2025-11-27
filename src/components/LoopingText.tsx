@@ -11,8 +11,8 @@ const LoopingText = (props: Props) => {
 
   return (
     <div
-      {...rest}
       className={clsx(classes["root"], className)}
+      {...rest}
     >
       <div className={classes["text-container"]}>
         <span>{text}</span>

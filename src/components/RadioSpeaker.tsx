@@ -9,7 +9,7 @@ const RadioSpeaker = (props: Props) => {
 
   return (
     <div
-      className={clsx(classes["root"], className)}
+      className={clsx(classes.root, className)}
       {...rest}
     />
   );
