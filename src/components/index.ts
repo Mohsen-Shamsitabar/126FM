@@ -1,4 +1,5 @@
 export { default as AnimatedText } from "./AnimatedText";
+export { default as BubbleText } from "./BubbleText";
 export { default as ChannelNavigation } from "./ChannelNavigation";
 export { default as Container } from "./Container";
 export { default as ChannelInfo } from "./CurrentChannel";

@@ -1,0 +1,15 @@
+.root {
+  display: flex;
+  flex-direction: row;
+  line-height: 1.5rem;
+}
+
+.author {
+  margin-right: 0.5rem;
+  width: 5rem;
+  flex-shrink: 0;
+}
+
+.text {
+  width: 100%;
+}

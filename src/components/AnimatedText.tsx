@@ -3,11 +3,13 @@ import classes from "@/styles/animated-text.module.css";
 import clsx from "clsx";
 import { memo, useEffect, useRef, type ComponentProps } from "react";
 
-type Props = ComponentProps<"pre"> & {
+type UniqueProps = {
   text: string;
   interval?: number;
-  onComplete: () => void;
+  onComplete?: () => void;
 };
+
+type Props = ComponentProps<"pre"> & UniqueProps;
 
 const AnimatedText = memo((props: Props) => {
   const {
@@ -38,7 +40,7 @@ const AnimatedText = memo((props: Props) => {
       if (!isMountedRef.current) return;
 
       if (idx >= text.length) {
-        onComplete();
+        if (onComplete) onComplete();
         return;
       }
 
@@ -69,3 +71,4 @@ const AnimatedText = memo((props: Props) => {
 });
 
 export default AnimatedText;
+export { type UniqueProps as AnimatedTextProps };
