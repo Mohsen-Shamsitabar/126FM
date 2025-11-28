@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 const WAVE_CHARACTERS_INACTIVE = "12312312312312312312312312312312312312";
 const WAVE_CHARACTERS = "ĂăĄąĆćĈċĊĉċčīēģĹĶĲĺķĺĺĳĽĳĶĵĦČģĹĪĞĠĝġđČĐĤĨĳħģĚģĢĞĢİķī";
 
-const ANIMATION_INTERVAL = 100;
+const ANIMATION_INTERVAL = 150;
 
 const Waveform = () => {
   const { currentChannel } = useChannelValue();
