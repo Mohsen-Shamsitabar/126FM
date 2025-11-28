@@ -12,3 +12,4 @@ export { default as LoopingText } from "./LoopingText";
 export { default as Pages } from "./Pages";
 export { default as RadioFooter } from "./RadioFooter";
 export { default as RadioSpeaker } from "./RadioSpeaker";
+export { default as Waveform } from "./Waveform";

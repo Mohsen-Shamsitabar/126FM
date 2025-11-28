@@ -1,4 +1,10 @@
-import { Container, Pages, RadioFooter, RadioSpeaker } from "@/components";
+import {
+  Container,
+  Pages,
+  RadioFooter,
+  RadioSpeaker,
+  Waveform,
+} from "@/components";
 import { ChannelProvider } from "@/contexts/channel";
 import { ChannelType, type Channel } from "@/types";
 import useAudioUnlock from "./hooks/useAudioUnlock";
@@ -49,7 +55,7 @@ const App = () => {
       <Container>
         <RadioSpeaker />
 
-        {/* <Waveform /> */}
+        <Waveform />
 
         {/* ChannelContent */}
 

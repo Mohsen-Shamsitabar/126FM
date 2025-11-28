@@ -1,0 +1,22 @@
+@font-face {
+  font-family: Wavefont;
+  font-display: block;
+  src: url("@/fonts/Wavefont.woff2") format("woff2");
+}
+
+.waveform {
+  --wght: 50;
+
+  font-size: 160px;
+
+  font-family: Wavefont;
+  font-variation-settings:
+    "wght" var(--wght),
+    "ROND" 50,
+    "YELA" 0.5;
+
+  width: 100%;
+  text-wrap: nowrap;
+  text-align: center;
+  letter-spacing: 0.06em;
+}
