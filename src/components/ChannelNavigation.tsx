@@ -83,7 +83,10 @@ const ChannelNavigation = () => {
       <Separator />
       <ol className={clsx(classes.container)}>
         {channels.map((channel, index) => (
-          <li key={channel.id}>
+          <li
+            className={classes["list-item"]}
+            key={channel.id}
+          >
             <ChannelButton {...channel}>{index + 1}</ChannelButton>
           </li>
         ))}

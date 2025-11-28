@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: center;
 
-  inset-inline: 0;
+  /* inset-inline: 0; */
 }
 
 .container {
@@ -52,8 +52,6 @@
   width: var(--button-width);
   height: var(--button-height);
   padding-inline: var(--button-padding-inline);
-  border-top-left-radius: var(--button-border-radius);
-  border-top-right-radius: var(--button-border-radius);
 
   transition:
     filter 0.2s,
@@ -71,6 +69,9 @@
 .home {
   background-color: var(--red);
   flex: 0 0 auto;
+
+  border-top-right-radius: var(--button-border-radius);
+  border-top-left-radius: var(--button-border-radius);
 
   &:active {
     background-color: var(--red-active);
@@ -92,6 +93,16 @@
 
   &:active {
     background-color: var(--gray-active);
+  }
+}
+
+.list-item {
+  &:last-child > button {
+    border-top-right-radius: var(--button-border-radius);
+  }
+
+  &:first-child > button {
+    border-top-left-radius: var(--button-border-radius);
   }
 }
 

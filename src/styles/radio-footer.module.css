@@ -1,4 +1,10 @@
 .root {
+  padding: inherit;
+  padding-top: 1rem;
+  width: 100%;
   position: absolute;
   bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: var(--bgc);
 }

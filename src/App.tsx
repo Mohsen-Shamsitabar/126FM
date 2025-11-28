@@ -54,10 +54,14 @@ const App = () => {
         {/* ChannelContent */}
 
         <div
+          // First we need to build the wave component to determine the height of texts container...
+          // I will add the gradient fade effect after that.
           style={{
             display: "flex",
             flexDirection: "column",
             gap: "1rem",
+            height: "500px",
+            overflowY: "scroll",
           }}
         >
           <BubbleText
