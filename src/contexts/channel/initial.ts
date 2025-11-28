@@ -1,4 +1,4 @@
-import type { Channel, ContextAction } from "@/types";
+import type { Channel } from "@/types";
 
 type State = {
   channels: Channel[];
@@ -13,11 +13,28 @@ const initialState: State = {
 enum ActionType {
   SET_CHANNELS = "SET_CHANNELS",
   SET_CURRENT_CHANNEL = "SET_CURRENT_CHANNEL",
+  SHIFT_CHANNEL = "SHIFT_CHANNEL",
 }
 
+// type Action =
+//   | ContextAction<State, "channels", ActionType.SET_CHANNELS>
+//   | ContextAction<State, "currentChannel", ActionType.SET_CURRENT_CHANNEL>
+//   | ContextAction<State, "currentChannel", ActionType.SHIFT_CHANNEL>
+//   | undefined;
+
 type Action =
-  | ContextAction<State, "channels", ActionType.SET_CHANNELS>
-  | ContextAction<State, "currentChannel", ActionType.SET_CURRENT_CHANNEL>
+  | {
+      type: ActionType.SET_CHANNELS;
+      payload: { channels: State["channels"] };
+    }
+  | {
+      type: ActionType.SET_CURRENT_CHANNEL;
+      payload: { currentChannel: State["currentChannel"] };
+    }
+  | {
+      type: ActionType.SHIFT_CHANNEL;
+      payload: { shiftAmount: number };
+    }
   | undefined;
 
 const initialAction: Action = undefined;

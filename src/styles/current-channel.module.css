@@ -1,0 +1,44 @@
+.root {
+  display: flex;
+  /* align-items: center; */
+
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 3.5rem;
+  height: auto;
+  flex-shrink: 0;
+
+  color: var(--text-color);
+}
+
+.btn > * {
+  transform: scaleY(1.5);
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.freq {
+  height: 75%;
+  font-weight: 200;
+  font-size: 40px;
+}
+
+.freq > span {
+  color: var(--red);
+}
+
+.info-container > div {
+  height: 25%;
+  flex-shrink: 0;
+}

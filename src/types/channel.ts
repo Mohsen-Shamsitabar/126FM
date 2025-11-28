@@ -1,7 +1,7 @@
 export type Channel = {
   id: string;
   name: string;
-  frequency: number;
+  frequency: string;
   currentProgram: string;
   type: ChannelType;
 };
