@@ -11,8 +11,10 @@ const reducer = (state: State, action: Action): State => {
       const payload = isFunction(action.payload)
         ? action.payload(state)
         : action.payload;
+
       return { ...state, channels: payload.channels };
     }
+
     case ActionType.SET_CURRENT_CHANNEL: {
       const { currentChannel: newCurrentChannel } = action.payload;
 
@@ -22,6 +24,7 @@ const reducer = (state: State, action: Action): State => {
 
       return { ...state, currentChannel: newCurrentChannel };
     }
+
     case ActionType.SHIFT_CHANNEL: {
       const { shiftAmount } = action.payload;
 
@@ -50,6 +53,7 @@ const reducer = (state: State, action: Action): State => {
 
       return { ...state, currentChannel: newCurrentChannel };
     }
+
     default:
       return state;
   }

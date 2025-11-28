@@ -9,8 +9,6 @@ type Props = ComponentProps<"div"> & {
 const LoopingText = (props: Props) => {
   const { element, className, ...rest } = props;
 
-  console.log(element);
-
   return (
     <div
       className={clsx(classes["root"], className)}

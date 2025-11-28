@@ -19,13 +19,12 @@
   & > h1 > span {
     color: var(--red);
   }
+}
 
-  & > caption {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    flex-wrap: wrap;
-  }
+.heading-caption {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
 }
 
 .menu {

@@ -71,4 +71,4 @@ const AnimatedText = memo((props: Props) => {
 });
 
 export default AnimatedText;
-export { type UniqueProps as AnimatedTextProps };
+export { type UniqueProps };

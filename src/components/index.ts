@@ -1,4 +1,7 @@
-export { default as AnimatedText } from "./AnimatedText";
+export {
+  default as AnimatedText,
+  type UniqueProps as AnimatedTextProps,
+} from "./AnimatedText";
 export { default as BubbleText } from "./BubbleText";
 export { default as ChannelContent } from "./ChannelContent";
 export { default as ChannelInfo } from "./ChannelInfo";

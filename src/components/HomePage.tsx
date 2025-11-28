@@ -6,7 +6,7 @@ import {
 import classes from "@/styles/home-page.module.css";
 import { ChevronLeft, Music } from "lucide-react";
 import { useState } from "react";
-import AnimatedText from "./AnimatedText";
+import { AnimatedText, LoopingText } from ".";
 
 type PageProps = {
   onBack: () => void;
@@ -41,9 +41,13 @@ const HomeTitle = () => {
         126<span>.</span>0 FM
       </h1>
 
-      <span>
-        Main Menu <Music size={16} /> Playing Passion of love
-      </span>
+      <LoopingText
+        element={
+          <span className={classes["heading-caption"]}>
+            Main Menu <Music size={16} /> Playing Passion of love
+          </span>
+        }
+      />
     </section>
   );
 };
