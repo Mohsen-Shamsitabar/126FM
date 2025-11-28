@@ -8,17 +8,15 @@ const ChannelInfo = () => {
   const { currentChannel } = useChannelValue();
   const channelDispatch = useChannelDispatch();
 
-  const getFreq = (): [string, string] => {
-    if (!currentChannel) return ["0", "0"];
+  if (!currentChannel) return null;
 
+  const getFreq = (): [string, string] => {
     const { frequency } = currentChannel;
 
     return frequency.split(".") as [string, string];
   };
 
   const getLoopingText = (): string => {
-    if (!currentChannel) return "Turn on the radio!";
-
     const { currentProgram, name } = currentChannel;
 
     return `${name} - ${currentProgram}`;

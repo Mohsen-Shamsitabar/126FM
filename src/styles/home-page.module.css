@@ -1,0 +1,62 @@
+.root {
+  flex-grow: 1;
+  padding-inline: 1.5rem;
+
+  button {
+    color: var(--text-color);
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+.heading {
+  & > h1 {
+    font-weight: 200;
+    font-size: 48px;
+  }
+
+  & > h1 > span {
+    color: var(--red);
+  }
+
+  & > caption {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+}
+
+.menu {
+  padding-block: 1.5rem;
+
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  gap: 1rem;
+
+  /* Play button */
+  & > button {
+    font-size: 32px;
+  }
+
+  & > ul {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    gap: 0.25rem;
+
+    /* How to Play & Credits */
+    & > button {
+      line-height: 1.5rem;
+    }
+  }
+}
+
+.content {
+  padding-block: 1.5rem;
+
+  button {
+    font-size: 1.5rem;
+  }
+}
