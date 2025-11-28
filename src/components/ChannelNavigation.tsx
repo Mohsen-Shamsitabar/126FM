@@ -19,6 +19,10 @@ const Separator = () => {
 const HomeButton = () => {
   const channelDispatch = useChannelDispatch();
 
+  const { currentChannel } = useChannelValue();
+
+  const isActive = currentChannel === undefined;
+
   const handleClick = () => {
     channelDispatch({
       type: ChannelAction.SET_CURRENT_CHANNEL,
@@ -28,7 +32,11 @@ const HomeButton = () => {
 
   return (
     <button
-      className={clsx(classes.button, classes.home)}
+      className={clsx(
+        classes.button,
+        classes.home,
+        isActive ? classes["home--active"] : undefined,
+      )}
       onClick={handleClick}
     >
       <span className={clsx(classes.icon)} />
@@ -41,6 +49,10 @@ const ChannelButton = (props: PropsWithChildren<Channel>) => {
 
   const channelDispatch = useChannelDispatch();
 
+  const { currentChannel } = useChannelValue();
+
+  const isActive = currentChannel?.id === channel.id;
+
   const handleClick = () => {
     channelDispatch({
       type: ChannelAction.SET_CURRENT_CHANNEL,
@@ -50,7 +62,11 @@ const ChannelButton = (props: PropsWithChildren<Channel>) => {
 
   return (
     <button
-      className={clsx(classes.button, classes.channel)}
+      className={clsx(
+        classes.button,
+        classes.channel,
+        isActive ? classes["channel--active"] : undefined,
+      )}
       onClick={handleClick}
     >
       {children}

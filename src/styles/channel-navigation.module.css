@@ -1,3 +1,7 @@
+:root {
+  --btn-transform: translateY(0.5rem);
+}
+
 .root {
   display: flex;
   align-items: center;
@@ -60,7 +64,7 @@
   }
 
   &:active {
-    transform: translateY(0.5rem);
+    transform: var(--btn-transform);
   }
 }
 
@@ -71,6 +75,11 @@
   &:active {
     background-color: var(--red-active);
   }
+}
+
+.home--active {
+  transform: var(--btn-transform);
+  background-color: var(--red-active);
 }
 
 .channel {
@@ -84,6 +93,11 @@
   &:active {
     background-color: var(--gray-active);
   }
+}
+
+.channel--active {
+  transform: var(--btn-transform);
+  background-color: var(--gray-active);
 }
 
 .icon {
