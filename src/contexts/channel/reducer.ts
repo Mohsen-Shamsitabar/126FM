@@ -1,3 +1,4 @@
+import sounds from "@/sounds";
 import { isFunction } from "@/utils";
 import { type Action, ActionType, type State } from "./initial";
 import { clamp } from "./utils";
@@ -13,10 +14,13 @@ const reducer = (state: State, action: Action): State => {
       return { ...state, channels: payload.channels };
     }
     case ActionType.SET_CURRENT_CHANNEL: {
-      const payload = isFunction(action.payload)
-        ? action.payload(state)
-        : action.payload;
-      return { ...state, currentChannel: payload.currentChannel };
+      const { currentChannel: newCurrentChannel } = action.payload;
+
+      if (state.currentChannel?.id === newCurrentChannel?.id) return state;
+
+      sounds.radioClick.play();
+
+      return { ...state, currentChannel: newCurrentChannel };
     }
     case ActionType.SHIFT_CHANNEL: {
       const { shiftAmount } = action.payload;
@@ -24,6 +28,7 @@ const reducer = (state: State, action: Action): State => {
       const { channels, currentChannel } = state;
 
       if (!currentChannel) {
+        sounds.radioClick.play();
         return { ...state, currentChannel: channels[0] };
       }
 
@@ -37,7 +42,13 @@ const reducer = (state: State, action: Action): State => {
         channels.length - 1,
       );
 
-      return { ...state, currentChannel: channels[newIdx] };
+      const newCurrentChannel = channels[newIdx];
+
+      if (state.currentChannel?.id === newCurrentChannel.id) return state;
+
+      sounds.radioClick.play();
+
+      return { ...state, currentChannel: newCurrentChannel };
     }
     default:
       return state;

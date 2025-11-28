@@ -6,7 +6,7 @@ import {
 import classes from "@/styles/channel-navigation.module.css";
 import { type Channel } from "@/types";
 import clsx from "clsx";
-import type { PropsWithChildren } from "react";
+import { type PropsWithChildren } from "react";
 
 const Separator = () => {
   return (
@@ -24,6 +24,8 @@ const HomeButton = () => {
   const isActive = currentChannel === undefined;
 
   const handleClick = () => {
+    if (isActive) return;
+
     channelDispatch({
       type: ChannelAction.SET_CURRENT_CHANNEL,
       payload: { currentChannel: undefined },
@@ -54,6 +56,8 @@ const ChannelButton = (props: PropsWithChildren<Channel>) => {
   const isActive = currentChannel?.id === channel.id;
 
   const handleClick = () => {
+    if (isActive) return;
+
     channelDispatch({
       type: ChannelAction.SET_CURRENT_CHANNEL,
       payload: { currentChannel: channel },
