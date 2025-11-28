@@ -15,7 +15,7 @@
   position: relative;
 }
 
-.text-container {
+.content-container {
   display: inline-block;
   padding-left: 100%;
 
@@ -23,6 +23,17 @@
   animation-duration: 7s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+
+  & > * {
+    color: inherit;
+    fill: currentColor;
+    stroke: currentColor;
+  }
 }
 
 /* --- --- --- */

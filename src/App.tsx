@@ -42,7 +42,6 @@ const CHANNELS: Channel[] = [
 ];
 
 const App = () => {
-
   useAudioUnlock();
 
   return (

@@ -60,7 +60,7 @@ const ChannelInfo = () => {
           <LoopingText
             // We could add a key to restart the animation
             // key={loopingText}
-            text={loopingText}
+            element={loopingText}
           />
         </div>
       </div>

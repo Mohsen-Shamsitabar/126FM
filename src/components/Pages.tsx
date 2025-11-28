@@ -1,45 +1,14 @@
 import { useChannelValue } from "@/contexts/channel";
-import { useState } from "react";
-import BubbleText from "./BubbleText";
-import HomePage from "./HomePage";
+import { ChannelContent, HomePage } from ".";
 
 const Pages = () => {
-  const [counter, setCounter] = useState(0);
-
   const { currentChannel } = useChannelValue();
 
   const isHomePage = !currentChannel;
 
   if (isHomePage) return <HomePage />;
 
-  return (
-    <div
-      // First we need to build the wave component to determine the height of texts container...
-      // I will add the gradient fade effect after that.
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "1rem",
-        height: "500px",
-        overflowY: "scroll",
-      }}
-    >
-      <BubbleText
-        author="Mohsen"
-        text="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi quaerat perspiciatis aut sapiente fuga. Sapiente sit dolor error ipsa nemo earum eos blanditiis dolorem tempore explicabo pariatur, velit assumenda? Repellendus labore quasi assumenda magni, rem repellat. Totam, distinctio quaerat rem eaque impedit recusandae! Exercitationem asperiores magnam sed blanditiis, incidunt qui velit a iste sint eos? Cupiditate dolores similique fuga? Unde dolorum sed tempore laudantium at error minus cupiditate voluptas quod eius quis temporibus adipisci minima ad ratione rem, atque sit? Voluptatum, odit quam. Soluta molestiae earum temporibus deleniti, nobis accusamus, error illo in vero suscipit nihil unde numquam voluptatem nisi."
-        interval={5}
-        onComplete={() => setCounter(counter + 1)}
-      />
-
-      {counter === 1 && (
-        <BubbleText
-          author="Amir"
-          text="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi quaerat perspiciatis aut sapiente fuga. Sapiente sit dolor error ipsa nemo earum eos blanditiis dolorem tempore explicabo pariatur, velit assumenda? Repellendus labore quasi assumenda magni, rem repellat. Totam, distinctio quaerat rem eaque impedit recusandae! Exercitationem asperiores magnam sed blanditiis, incidunt qui velit a iste sint eos? Cupiditate dolores similique fuga? Unde dolorum sed tempore laudantium at error minus cupiditate voluptas quod eius quis temporibus adipisci minima ad ratione rem, atque sit? Voluptatum, odit quam. Soluta molestiae earum temporibus deleniti, nobis accusamus, error illo in vero suscipit nihil unde numquam voluptatem nisi."
-          interval={5}
-        />
-      )}
-    </div>
-  );
+  return <ChannelContent />;
 };
 
 export default Pages;

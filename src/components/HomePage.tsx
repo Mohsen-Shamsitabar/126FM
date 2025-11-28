@@ -41,9 +41,9 @@ const HomeTitle = () => {
         126<span>.</span>0 FM
       </h1>
 
-      <caption>
+      <span>
         Main Menu <Music size={16} /> Playing Passion of love
-      </caption>
+      </span>
     </section>
   );
 };

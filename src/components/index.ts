@@ -1,8 +1,10 @@
 export { default as AnimatedText } from "./AnimatedText";
 export { default as BubbleText } from "./BubbleText";
+export { default as ChannelContent } from "./ChannelContent";
 export { default as ChannelInfo } from "./ChannelInfo";
 export { default as ChannelNavigation } from "./ChannelNavigation";
 export { default as Container } from "./Container";
+export { default as HomePage } from "./HomePage";
 export { default as LoopingText } from "./LoopingText";
 export { default as Pages } from "./Pages";
 export { default as RadioFooter } from "./RadioFooter";
