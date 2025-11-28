@@ -46,7 +46,10 @@ const ChannelInfo = () => {
         onClick={handlePreviousBtnClick}
         className={classes.btn}
       >
-        <ChevronLeft />
+        <ChevronLeft
+          size={32}
+          strokeWidth={1}
+        />
       </button>
 
       <div className={classes["info-container"]}>
@@ -69,7 +72,10 @@ const ChannelInfo = () => {
         onClick={handleNextBtnClick}
         className={classes.btn}
       >
-        <ChevronRight />
+        <ChevronRight
+          size={32}
+          strokeWidth={1}
+        />
       </button>
     </div>
   );
