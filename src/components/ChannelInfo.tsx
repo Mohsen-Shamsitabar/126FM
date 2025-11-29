@@ -8,7 +8,7 @@ const ChannelInfo = () => {
   const { currentChannel } = useChannelValue();
   const channelDispatch = useChannelDispatch();
 
-  if (!currentChannel) return null;
+  if (!currentChannel) return <br />;
 
   const getFreq = (): [string, string] => {
     const { frequency } = currentChannel;

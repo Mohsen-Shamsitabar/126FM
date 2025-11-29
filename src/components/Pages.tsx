@@ -1,4 +1,5 @@
 import { useChannelValue } from "@/contexts/channel";
+import classes from "@/styles/pages.module.css";
 import { ChannelContent, HomePage } from ".";
 
 const Pages = () => {
@@ -6,9 +7,13 @@ const Pages = () => {
 
   const isHomePage = !currentChannel;
 
-  if (isHomePage) return <HomePage />;
+  const renderPage = () => {
+    if (isHomePage) return <HomePage />;
 
-  return <ChannelContent />;
+    return <ChannelContent />;
+  };
+
+  return <div className={classes.root}>{renderPage()}</div>;
 };
 
 export default Pages;

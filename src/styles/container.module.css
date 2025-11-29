@@ -4,7 +4,7 @@
   --container-padding: 0 1rem;
   --container-margin: 0 auto;
 
-  height: 100dvh;
+  height: var(--screen-height);
   overflow: hidden;
   position: relative;
   max-width: var(--container-max-width);
