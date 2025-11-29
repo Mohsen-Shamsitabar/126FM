@@ -1,4 +1,6 @@
 .root {
+  padding: 2rem 0;
+
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -11,4 +13,23 @@
 
   scrollbar-width: none;
   scroll-behavior: smooth;
+
+  /* FADE */
+
+  white-space: nowrap;
+  position: relative;
+  mask-image: linear-gradient(
+    to top,
+    transparent 0%,
+    var(--bgc) 8%,
+    var(--bgc) 92%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--bgc) 8%,
+    var(--bgc) 92%,
+    transparent 100%
+  );
 }

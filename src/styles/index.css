@@ -18,6 +18,8 @@
 
   /* --- measurements --- */
 
+  --channel-info-height: 4.5rem;
+
   --screen-height: 100dvh;
   --radio-speaker-height: 3rem;
   --waveform-height: 11.5rem;
