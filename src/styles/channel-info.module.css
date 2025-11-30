@@ -12,15 +12,11 @@
   align-items: center;
   justify-content: center;
 
-  width: 3.5rem;
-  height: auto;
+  width: 4rem;
+  height: 4rem;
   flex-shrink: 0;
 
   color: var(--text-color);
-}
-
-.btn > * {
-  transform: scaleY(1.5);
 }
 
 .info-container {

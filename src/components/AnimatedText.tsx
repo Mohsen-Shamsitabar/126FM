@@ -1,7 +1,7 @@
 import CONFIG from "@/config";
 import classes from "@/styles/animated-text.module.css";
 import clsx from "clsx";
-import { memo, useEffect, useRef, type ComponentProps } from "react";
+import { useEffect, useRef, type ComponentProps } from "react";
 
 type UniqueProps = {
   text: string;
@@ -11,7 +11,7 @@ type UniqueProps = {
 
 type Props = ComponentProps<"pre"> & UniqueProps;
 
-const AnimatedText = memo((props: Props) => {
+const AnimatedText = (props: Props) => {
   const {
     text,
     interval = CONFIG.TEXT_ANIMATION_INTERVAL,
@@ -68,7 +68,7 @@ const AnimatedText = memo((props: Props) => {
       {...rest}
     />
   );
-});
+};
 
 export default AnimatedText;
 export { type UniqueProps };

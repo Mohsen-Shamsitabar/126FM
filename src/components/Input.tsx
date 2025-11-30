@@ -1,12 +1,20 @@
+import { GameAction, useGameDispatch } from "@/contexts/game";
 import sounds from "@/sounds";
 import classes from "@/styles/input.module.css";
 import clsx from "clsx";
 import { LockKeyholeOpenIcon } from "lucide-react";
 import { useState } from "react";
 
+const ANSWER = "OPEN SESAME";
+
+const checkAnswer = (input: string): boolean => {
+  return input.trim().toUpperCase() === ANSWER;
+};
+
 const Input = () => {
+  const gameDispatch = useGameDispatch();
   const [value, setValue] = useState("");
-  const [hasError, setHasError] = useState(false);
+  const [hasError, setHasError] = useState(true);
 
   const handleTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.value;
@@ -20,12 +28,21 @@ const Input = () => {
     setValue(newValue);
   };
 
-  const handleBtnClick = () => {
-    if (hasError) return;
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
 
-    setHasError(true);
+    const isValid = checkAnswer(value);
 
-    sounds.wrongAnswer.play();
+    if (!isValid) {
+      setHasError(true);
+      sounds.wrongAnswer.play();
+      return;
+    }
+
+    gameDispatch({
+      type: GameAction.SET_ANSWER,
+      payload: { answer: value },
+    });
   };
 
   const handleAnimationFinish = (
@@ -35,7 +52,10 @@ const Input = () => {
   };
 
   return (
-    <div className={classes.root}>
+    <form
+      className={classes.root}
+      onSubmit={handleSubmit}
+    >
       <input
         type="text"
         name="message-input"
@@ -46,16 +66,16 @@ const Input = () => {
       />
 
       <button
+        type="submit"
         className={clsx(
           classes.button,
           hasError ? classes["button--error"] : undefined,
         )}
         onAnimationEnd={handleAnimationFinish}
-        onClick={handleBtnClick}
       >
         <LockKeyholeOpenIcon size={16} />
       </button>
-    </div>
+    </form>
   );
 };
 

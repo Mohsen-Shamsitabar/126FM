@@ -6,6 +6,7 @@ import {
 import classes from "@/styles/channel-navigation.module.css";
 import { type Channel } from "@/types";
 import clsx from "clsx";
+import { Square } from "lucide-react";
 import { type PropsWithChildren } from "react";
 
 const Separator = () => {
@@ -41,7 +42,7 @@ const HomeButton = () => {
       )}
       onClick={handleClick}
     >
-      <span className={clsx(classes.icon)} />
+      <Square className={clsx(classes.icon)} />
     </button>
   );
 };

@@ -1,26 +1,42 @@
+import { useGameValue } from "@/contexts/game";
 import classes from "@/styles/channel-content.module.css";
-import { useState } from "react";
-import { BubbleText } from ".";
+import type { Channel } from "@/types";
+import AnimatedText from "./AnimatedText";
+import Conversation from "./Conversation";
+import EncryptedText from "./EncryptedText";
 
-const ChannelContent = () => {
-  const [counter, setCounter] = useState(0);
+type Props = Channel & { encrypted?: boolean };
+
+const ChannelContent = (props: Props) => {
+  const { answer } = useGameValue();
+  const { id, content = [], encrypted = false } = props;
+
+  if (!content.length) return null;
+
+  const isConversation = content.length > 1;
+
+  const renderEncrypted = () => {
+    return <EncryptedText />;
+  };
+
+  const renderConversation = () => {
+    return <Conversation dialogues={content} />;
+  };
+
+  const renderSingleText = () => {
+    return <AnimatedText text={content[0].text} />;
+  };
 
   return (
-    <div className={classes.root}>
-      <BubbleText
-        author="Mohsen"
-        text="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi quaerat perspiciatis aut sapiente fuga. Sapiente sit dolor error ipsa nemo earum eos blanditiis dolorem tempore explicabo pariatur, velit assumenda? Repellendus labore quasi assumenda magni, rem repellat. Totam, distinctio quaerat rem eaque impedit recusandae! Exercitationem asperiores magnam sed blanditiis, incidunt qui velit a iste sint eos? Cupiditate dolores similique fuga? Unde dolorum sed tempore laudantium at error minus cupiditate voluptas quod eius quis temporibus adipisci minima ad ratione rem, atque sit? Voluptatum, odit quam. Soluta molestiae earum temporibus deleniti, nobis accusamus, error illo in vero suscipit nihil unde numquam voluptatem nisi."
-        interval={5}
-        onComplete={() => setCounter(counter + 1)}
-      />
-
-      {counter === 1 && (
-        <BubbleText
-          author="Amir"
-          text="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi quaerat perspiciatis aut sapiente fuga. Sapiente sit dolor error ipsa nemo earum eos blanditiis dolorem tempore explicabo pariatur, velit assumenda? Repellendus labore quasi assumenda magni, rem repellat. Totam, distinctio quaerat rem eaque impedit recusandae! Exercitationem asperiores magnam sed blanditiis, incidunt qui velit a iste sint eos? Cupiditate dolores similique fuga? Unde dolorum sed tempore laudantium at error minus cupiditate voluptas quod eius quis temporibus adipisci minima ad ratione rem, atque sit? Voluptatum, odit quam. Soluta molestiae earum temporibus deleniti, nobis accusamus, error illo in vero suscipit nihil unde numquam voluptatem nisi."
-          interval={5}
-        />
-      )}
+    <div
+      key={id}
+      className={classes.root}
+    >
+      {encrypted && !answer
+        ? renderEncrypted()
+        : isConversation
+          ? renderConversation()
+          : renderSingleText()}
     </div>
   );
 };

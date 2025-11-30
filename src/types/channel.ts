@@ -4,6 +4,14 @@ export type Channel = {
   frequency: string;
   currentProgram: string;
   type: ChannelType;
+  content: ChannelContent[];
+  encrypted?: boolean;
+};
+
+export type ChannelContent = {
+  id: string;
+  author: string | unknown;
+  text: string;
 };
 
 export enum ChannelType {

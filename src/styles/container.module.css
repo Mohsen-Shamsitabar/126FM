@@ -4,9 +4,9 @@
   --container-padding: 0 1rem;
   --container-margin: 0 auto;
 
-  height: var(--screen-height);
   overflow: hidden;
   position: relative;
+  height: var(--screen-height);
   max-width: var(--container-max-width);
   min-width: var(--container-min-width);
   margin: var(--container-margin);

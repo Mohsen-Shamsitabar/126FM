@@ -10,7 +10,7 @@ const Pages = () => {
   const renderPage = () => {
     if (isHomePage) return <HomePage />;
 
-    return <ChannelContent />;
+    return <ChannelContent {...currentChannel} />;
   };
 
   return <div className={classes.root}>{renderPage()}</div>;

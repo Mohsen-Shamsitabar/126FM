@@ -1,28 +1,36 @@
 :root {
+  /*  */
   --btn-transform: translateY(0.5rem);
+
+  /*  */
+  --container-gap: 2px;
+
+  /*  */
+  --separator-width: 2px;
+  --separator-height: 1rem;
+  --separator-bgc: #171717;
+
+  /*  */
+  --button-width: 3.5rem;
+  --button-height: 4rem;
+  --button-padding-inline: 1rem;
+  --button-border-radius: 0.5rem;
 }
 
 .root {
   display: flex;
   align-items: center;
   justify-content: center;
-
-  /* inset-inline: 0; */
+  padding-inline: 1rem;
 }
 
 .container {
-  --container-gap: 2px;
-
   display: flex;
   justify-content: center;
   gap: var(--container-gap);
 }
 
 .separator {
-  --separator-width: 2px;
-  --separator-height: 1rem;
-  --separator-bgc: #171717;
-
   width: 10px;
   height: 100%;
   display: flex;
@@ -39,11 +47,6 @@
 }
 
 .button {
-  --button-width: 3.5rem;
-  --button-height: 4rem;
-  --button-padding-inline: 1rem;
-  --button-border-radius: 0.5rem;
-
   flex: 1 0 auto;
   display: inline-flex;
   align-items: center;
@@ -112,8 +115,6 @@
 }
 
 .icon {
-  display: block;
-  width: 1.5rem;
-  height: 1.5rem;
-  background-color: white;
+  color: var(--text-color);
+  fill: var(--text-color);
 }
