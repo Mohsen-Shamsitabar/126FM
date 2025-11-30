@@ -38,7 +38,10 @@ const reducer = (state: State, action: Action): State => {
         channel => channel.id === currentChannel.id,
       );
 
-      const newIdx = (currentChannelIdx + shiftAmount) % channels.length;
+      const newIdx =
+        (((currentChannelIdx + shiftAmount) % channels.length) +
+          channels.length) %
+        channels.length;
 
       const newCurrentChannel = channels[newIdx];
 
