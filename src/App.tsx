@@ -83,7 +83,6 @@ const CHANNELS: Channel[] = [
     content: [
       {
         id: "1",
-        author: "",
         text: `Another head hangs lowly
 Child is slowly taken
 And the violence caused such silence
@@ -119,6 +118,33 @@ Eh-eh, oh, ya-ya
 `,
       },
     ],
+  },
+  {
+    id: "4",
+    name: "Classical FM",
+    currentProgram: "Fur Elise",
+    frequency: "100.1",
+    type: ChannelType.Music,
+    content: [
+      {
+        id: "1",
+        text: `Fur Elise - Ludwig van Beethoven [Instrumental Music]`,
+      },
+    ],
+  },
+  {
+    id: "5",
+    name: "SecretService FM",
+    currentProgram: "Treaty of Versailles",
+    frequency: "126.0",
+    type: ChannelType.News,
+    content: [
+      {
+        id: "1",
+        text: "The last acts in concluding peace with Germany were performed on  Saturday afternoon as arranged, by the Allies of Europe and Japan. All  measures for the execution of the treaty are at once set on foot. The  most important, from the point of view of the resumption of friendly  relations, is the repatriation of the large number of German prisoners  still held in France and of the crews of the scuttled ships held by  Great Britain.",
+      },
+    ],
+    encrypted: true,
   },
 ];
 

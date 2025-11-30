@@ -10,7 +10,7 @@ export type Channel = {
 
 export type ChannelContent = {
   id: string;
-  author: string | unknown;
+  author?: string;
   text: string;
 };
 
