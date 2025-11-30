@@ -1,4 +1,5 @@
 .root {
   width: 100%;
   height: var(--pages-height);
+  padding: 0 0.5rem;
 }

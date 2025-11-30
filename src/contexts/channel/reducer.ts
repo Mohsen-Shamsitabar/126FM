@@ -1,7 +1,6 @@
 import sounds from "@/sounds";
 import { isFunction } from "@/utils";
 import { type Action, ActionType, type State } from "./initial";
-import { clamp } from "./utils";
 
 const reducer = (state: State, action: Action): State => {
   if (!action) return state;
@@ -39,11 +38,7 @@ const reducer = (state: State, action: Action): State => {
         channel => channel.id === currentChannel.id,
       );
 
-      const newIdx = clamp(
-        0,
-        currentChannelIdx + shiftAmount,
-        channels.length - 1,
-      );
+      const newIdx = (currentChannelIdx + shiftAmount) % channels.length;
 
       const newCurrentChannel = channels[newIdx];
 

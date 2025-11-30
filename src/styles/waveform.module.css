@@ -5,6 +5,8 @@
 }
 
 .waveform {
+  transform: scaleX(1.15);
+
   --wght: 50;
 
   font-size: 160px;
