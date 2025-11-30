@@ -61,9 +61,33 @@
 
 .content {
   padding-block: 1.5rem;
+  line-height: 1.5rem;
 
   button {
+    display: flex;
+    align-items: center;
     font-size: 1.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+
+    h2 {
+      margin-left: 1rem;
+    }
+  }
+}
+
+.devs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+
+  h5 {
+    font-weight: 400;
+    font-size: 1rem;
+  }
+
+  p {
+    font-weight: 0.875rem;
+    color: var(--text-secondary-color);
   }
 }
