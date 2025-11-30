@@ -1,17 +1,10 @@
 .root {
-  height: var(--footer-height);
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 24px;
 
-  padding: inherit;
-  padding-top: 1rem;
-  width: 100%;
+  inset-inline: 0;
   position: absolute;
   bottom: 0;
-  right: 0;
-  left: 0;
-  background-color: var(--bgc);
 }
