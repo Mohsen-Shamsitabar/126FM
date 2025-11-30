@@ -14,7 +14,7 @@ const checkAnswer = (input: string): boolean => {
 const Input = () => {
   const gameDispatch = useGameDispatch();
   const [value, setValue] = useState("");
-  const [hasError, setHasError] = useState(true);
+  const [hasError, setHasError] = useState(false);
 
   const handleTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.value;
@@ -35,6 +35,7 @@ const Input = () => {
 
     if (!isValid) {
       setHasError(true);
+
       sounds.wrongAnswer.play();
       return;
     }
