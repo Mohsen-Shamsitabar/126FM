@@ -5,7 +5,6 @@ const RadioFooter = () => {
   return (
     <footer className={classes.root}>
       <ChannelInfo />
-
       <ChannelNavigation />
     </footer>
   );
