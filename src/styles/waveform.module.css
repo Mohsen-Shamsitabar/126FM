@@ -16,7 +16,11 @@
     "YELA" 0.5;
 
   width: 100%;
+  height: var(--waveform-height);
   text-wrap: nowrap;
   text-align: center;
   letter-spacing: 0.06em;
+
+  pointer-events: none;
+  user-select: none;
 }

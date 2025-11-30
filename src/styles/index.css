@@ -16,6 +16,19 @@
   --gray-hover: none;
   --gray-active: #171717;
 
+  /* --- measurements --- */
+
+  --channel-info-height: 4.5rem;
+
+  --screen-height: 100dvh;
+  --radio-speaker-height: 3rem;
+  --waveform-height: 11.5rem;
+  --footer-height: 10rem;
+  --pages-height: calc(
+    var(--screen-height) - var(--radio-speaker-height) -
+      var(--waveform-height) - var(--footer-height)
+  );
+
   /* --- --- --- --- */
 
   font-family: "Inter", sans-serif;

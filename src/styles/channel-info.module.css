@@ -1,7 +1,10 @@
 .root {
   display: flex;
+
   width: 100%;
-  margin-bottom: 1rem;
+  height: var(--channel-info-height);
+  flex-shrink: 0;
+  /* margin-bottom: 1rem; */
 }
 
 .btn {
@@ -19,20 +22,27 @@
 .info-container {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+
   width: 100%;
 }
 
-.freq {
-  height: 75%;
+.freq-container {
+  height: 72%;
   font-weight: 200;
   font-size: 40px;
+
+  & * {
+    font-weight: inherit;
+    font-size: inherit;
+  }
+
+  & span {
+    color: var(--red);
+  }
 }
 
-.freq > span {
-  color: var(--red);
-}
-
-.info-container > div {
-  height: 25%;
+.text-container {
+  height: 23%;
   flex-shrink: 0;
 }
