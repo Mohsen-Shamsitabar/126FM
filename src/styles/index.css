@@ -24,7 +24,6 @@
   --screen-height: 100dvh;
   --radio-speaker-height: 3rem;
   --waveform-height: 11.5rem;
-  --footer-height: 10rem;
   --pages-height: calc(
     var(--screen-height) - var(--radio-speaker-height) -
       var(--waveform-height) - var(--footer-height)
