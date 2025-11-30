@@ -15,7 +15,7 @@ const CHANNELS: Channel[] = [
     id: "1",
     name: "GameOff Radio",
     currentProgram: "Game Jam Of 2025",
-    frequency: "98.5",
+    frequency: "88.5",
     type: ChannelType.Podcast,
     content: [
       {
@@ -54,7 +54,7 @@ const CHANNELS: Channel[] = [
     id: "2",
     name: "Ferasati FM",
     currentProgram: "All Quite On The Western Front",
-    frequency: "99.0",
+    frequency: "92.0",
     type: ChannelType.TalkShow,
     content: [
       {
