@@ -115,8 +115,8 @@ Eh-eh, oh, ya-ya
   },
   {
     id: "4",
-    name: "Breaking Broadcast",
-    currentProgram: "Chemical Confessions",
+    name: "Chemistry Station",
+    currentProgram: "Breaking Broadcast",
     frequency: "100.1",
     soundtrack: sounds.radioStatic,
     type: ChannelType.TalkShow,
@@ -147,4 +147,17 @@ I am the one who knocks. And I’m done answering the door for condiments.`,
     ],
     encrypted: true,
   },
+];
+
+export const ANSWERS: string[] = [
+  // Correct variations
+  "treaty of versailles",
+  "versailles",
+  "versailles treaty",
+  "the treaty of versailles",
+  // Variations with wrong spelling
+  "treaty of versailes",
+  "versailes",
+  "versailes treaty",
+  "the treaty of versailes",
 ];

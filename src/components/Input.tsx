@@ -1,3 +1,4 @@
+import { ANSWERS } from "@/content";
 import { GameAction, useGameDispatch } from "@/contexts/game";
 import sounds from "@/sounds";
 import classes from "@/styles/input.module.css";
@@ -5,10 +6,8 @@ import clsx from "clsx";
 import { LockKeyholeOpenIcon } from "lucide-react";
 import { useState } from "react";
 
-const ANSWER = "OPEN SESAME";
-
 const checkAnswer = (input: string): boolean => {
-  return input.trim().toUpperCase() === ANSWER;
+  return ANSWERS.includes(input.trim().toLowerCase());
 };
 
 const Input = () => {
@@ -18,7 +17,6 @@ const Input = () => {
 
   const handleTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.value;
-
     const randomRate = Math.random() * 0.5;
 
     sounds.keyboardPress.rate(1 + randomRate);
@@ -36,7 +34,6 @@ const Input = () => {
 
     if (!isValid) {
       setHasError(true);
-
       sounds.wrongAnswer.play();
       return;
     }
@@ -62,8 +59,8 @@ const Input = () => {
     >
       <input
         type="text"
-        name="message-input"
         id="message-input"
+        name="message-input"
         className={classes.input}
         onChange={handleTextChange}
         value={value}
