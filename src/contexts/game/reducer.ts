@@ -13,6 +13,14 @@ const reducer = (state: State, action: Action): State => {
       return { ...state, answer: payload.answer };
     }
 
+    case ActionType.INCREMENT_EMPTY_SUBMISSION: {
+      return { ...state, emptySubmissionCount: state.emptySubmissionCount + 1 };
+    }
+
+    case ActionType.RESET_EMPTY_SUBMISSION: {
+      return { ...state, emptySubmissionCount: 0 };
+    }
+
     default:
       return state;
   }
