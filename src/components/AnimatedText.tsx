@@ -1,3 +1,5 @@
+import classesForBubble from "@/styles/bubble-text.module.css";
+
 import CONFIG from "@/config";
 import classes from "@/styles/animated-text.module.css";
 import clsx from "clsx";
@@ -5,6 +7,7 @@ import { useEffect, useRef, type ComponentProps } from "react";
 
 type UniqueProps = {
   text: string;
+  author?: string;
   interval?: number;
   onComplete?: () => void;
 };
@@ -14,6 +17,7 @@ type Props = ComponentProps<"pre"> & UniqueProps;
 const AnimatedText = (props: Props) => {
   const {
     text,
+    author,
     interval = CONFIG.TEXT_ANIMATION_INTERVAL,
     className,
     onComplete,
@@ -60,6 +64,20 @@ const AnimatedText = (props: Props) => {
       }
     };
   }, [interval, text]);
+
+  if (author) {
+    return (
+      <div className={classesForBubble.root}>
+        <span className={classesForBubble.author}>{author}:</span>
+
+        <pre
+          ref={containerRef}
+          className={clsx(classes.root, className)}
+          {...rest}
+        />
+      </div>
+    );
+  }
 
   return (
     <pre

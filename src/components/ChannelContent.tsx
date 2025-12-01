@@ -6,11 +6,15 @@ import AnimatedText from "./AnimatedText";
 import Conversation from "./Conversation";
 import EncryptedText from "./EncryptedText";
 
-type Props = Channel & { encrypted?: boolean };
+type UseChannelSoundtrackOptions = {
+  channelId: string;
+  soundtrack?: Howl;
+  encrypted?: boolean;
+};
 
-const ChannelContent = (props: Props) => {
+const useChannelSoundtrack = (options: UseChannelSoundtrackOptions) => {
+  const { channelId, encrypted, soundtrack } = options;
   const { answer } = useGameValue();
-  const { id, soundtrack, content = [], encrypted = false } = props;
 
   useEffect(() => {
     if (!answer) return;
@@ -32,7 +36,20 @@ const ChannelContent = (props: Props) => {
     return () => {
       if (soundtrack) soundtrack.stop();
     };
-  }, [id, soundtrack, encrypted]);
+  }, [channelId, soundtrack, encrypted]);
+};
+
+type Props = Channel & { encrypted?: boolean };
+
+const ChannelContent = (props: Props) => {
+  const { answer } = useGameValue();
+  const { id, soundtrack, content = [], encrypted = false } = props;
+
+  useChannelSoundtrack({
+    channelId: id,
+    encrypted,
+    soundtrack,
+  });
 
   if (!content.length) return null;
 
@@ -47,7 +64,12 @@ const ChannelContent = (props: Props) => {
   };
 
   const renderSingleText = () => {
-    return <AnimatedText text={content[0].text} />;
+    return (
+      <AnimatedText
+        text={content[0].text}
+        author={content[0].author}
+      />
+    );
   };
 
   return (

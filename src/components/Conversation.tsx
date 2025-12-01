@@ -29,9 +29,8 @@ const Conversation = (props: Props) => {
     <>
       <BubbleText
         key={dialogue.id}
-        author={String(dialogue.author)}
         text={dialogue.text}
-        interval={5}
+        author={String(dialogue.author)}
         onComplete={() => {
           setShouldRenderNext(true);
         }}

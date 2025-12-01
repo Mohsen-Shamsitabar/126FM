@@ -9,7 +9,7 @@ type Props = ComponentProps<"div"> &
   };
 
 const BubbleText = (props: Props) => {
-  const { author, onComplete, text, interval, className, ...rest } = props;
+  const { author, onComplete, text, className, ...rest } = props;
 
   return (
     <div
@@ -19,10 +19,9 @@ const BubbleText = (props: Props) => {
       <span className={classes.author}>{author}:</span>
 
       <AnimatedText
+        text={text}
         className={classes.text}
         onComplete={onComplete}
-        text={text}
-        interval={interval}
       />
     </div>
   );
