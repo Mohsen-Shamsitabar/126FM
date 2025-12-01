@@ -9,6 +9,7 @@ export { default as ChannelNavigation } from "./ChannelNavigation";
 export { default as Container } from "./Container";
 export { default as HomePage } from "./HomePage";
 export { default as Input } from "./Input";
+export { default as Introduction } from "./Introduction";
 export { default as LoopingText } from "./LoopingText";
 export { default as Pages } from "./Pages";
 export { default as RadioFooter } from "./RadioFooter";
