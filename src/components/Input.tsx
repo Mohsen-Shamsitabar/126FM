@@ -55,7 +55,7 @@ const Input = () => {
     if (!isValid) {
       // Check if input is empty
       if (value.trim() === "") {
-        const newEmptyCount = gameValue.emptySubmissionCount + 1;
+        const newEmptyCount = (gameValue.emptySubmissionCount ?? 0) + 1;
 
         if (newEmptyCount === 5) {
           // Show dialog on 5th empty submission

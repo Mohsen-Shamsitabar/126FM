@@ -1,4 +1,4 @@
 export type Game = {
   answer?: string;
-  emptySubmissionCount: number;
+  emptySubmissionCount?: number;
 };

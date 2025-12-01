@@ -14,7 +14,10 @@ const reducer = (state: State, action: Action): State => {
     }
 
     case ActionType.INCREMENT_EMPTY_SUBMISSION: {
-      return { ...state, emptySubmissionCount: state.emptySubmissionCount + 1 };
+      return {
+        ...state,
+        emptySubmissionCount: (state.emptySubmissionCount ?? 0) + 1,
+      };
     }
 
     case ActionType.RESET_EMPTY_SUBMISSION: {

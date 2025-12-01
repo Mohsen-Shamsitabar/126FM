@@ -7,7 +7,6 @@ import {
   Waveform,
 } from "@/components";
 import { ChannelProvider } from "@/contexts/channel";
-import { ChannelType, type Channel } from "@/types";
 import { useCallback, useEffect, useState } from "react";
 import { CHANNELS } from "./content";
 import { GameProvider } from "./contexts/game";
