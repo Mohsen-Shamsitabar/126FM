@@ -96,8 +96,6 @@ const Input = () => {
           message="Do you really wanna know what's being broadcasted that bad?"
           onConfirm={handleConfirmReveal}
           onCancel={handleCancelReveal}
-          confirmText="Yes"
-          cancelText="No"
         />
       )}
 
