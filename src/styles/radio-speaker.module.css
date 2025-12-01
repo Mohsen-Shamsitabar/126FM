@@ -1,4 +1,5 @@
 .root {
+  --radio-speaker-height: 3rem;
   --radio-speaker-dot-color: var(--gray-active);
   --radio-speaker-dot-size: 1rem 1rem;
   --radio-speaker-border-radius: 0.5rem;
