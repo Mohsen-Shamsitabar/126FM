@@ -3,18 +3,23 @@ import { useEffect, useState } from "react";
 import BubbleText from "./BubbleText";
 
 type Props = {
-  index?: number;
   dialogues: ChannelContent[];
+  onComplete?: () => void;
+  index?: number;
 };
 
 const Conversation = (props: Props) => {
-  const { index = 0, dialogues } = props;
+  const { dialogues, onComplete, index = 0 } = props;
 
   const [shouldRenderNext, setShouldRenderNext] = useState(false);
 
   const dialogue = dialogues[index];
 
   useEffect(() => {
+    if (onComplete && index === dialogues.length - 1) {
+      onComplete();
+    }
+
     return () => setShouldRenderNext(false);
   }, [index]);
 
@@ -36,6 +41,7 @@ const Conversation = (props: Props) => {
         <Conversation
           index={index + 1}
           dialogues={dialogues}
+          onComplete={onComplete}
         />
       )}
     </>

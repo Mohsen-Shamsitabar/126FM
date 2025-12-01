@@ -30,6 +30,7 @@ const Input = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (hasError) return;
 
     const isValid = checkAnswer(value);
 
@@ -39,6 +40,8 @@ const Input = () => {
       sounds.wrongAnswer.play();
       return;
     }
+
+    sounds.correctAnswer.play();
 
     gameDispatch({
       type: GameAction.SET_ANSWER,

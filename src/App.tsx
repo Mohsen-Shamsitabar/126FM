@@ -8,7 +8,7 @@ import {
 import { ChannelProvider } from "@/contexts/channel";
 import { ChannelType, type Channel } from "@/types";
 import { GameProvider } from "./contexts/game";
-import useAudioUnlock from "./hooks/useAudioUnlock";
+import sounds from "./sounds";
 
 const CHANNELS: Channel[] = [
   {
@@ -16,6 +16,7 @@ const CHANNELS: Channel[] = [
     name: "GameOff Radio",
     currentProgram: "Game Jam Of 2025",
     frequency: "88.5",
+    soundtrack: sounds.radioStatic,
     type: ChannelType.Podcast,
     content: [
       {
@@ -55,6 +56,7 @@ const CHANNELS: Channel[] = [
     name: "Ferasati FM",
     currentProgram: "All Quite On The Western Front",
     frequency: "92.0",
+    soundtrack: sounds.radioStatic,
     type: ChannelType.TalkShow,
     content: [
       {
@@ -79,6 +81,7 @@ const CHANNELS: Channel[] = [
     name: "MusicToMakeLoveTo",
     currentProgram: "Zombie",
     frequency: "99.2",
+    soundtrack: sounds.radioStatic,
     type: ChannelType.Music,
     content: [
       {
@@ -124,6 +127,7 @@ Eh-eh, oh, ya-ya
     name: "Classical FM",
     currentProgram: "Fur Elise",
     frequency: "100.1",
+    soundtrack: sounds.radioStatic,
     type: ChannelType.Music,
     content: [
       {
@@ -137,6 +141,7 @@ Eh-eh, oh, ya-ya
     name: "SecretService FM",
     currentProgram: "Treaty of Versailles",
     frequency: "126.0",
+    soundtrack: sounds.radioStatic,
     type: ChannelType.News,
     content: [
       {
@@ -149,8 +154,6 @@ Eh-eh, oh, ya-ya
 ];
 
 const App = () => {
-  useAudioUnlock();
-
   return (
     <GameProvider>
       <ChannelProvider channels={CHANNELS}>

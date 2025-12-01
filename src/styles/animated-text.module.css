@@ -1,5 +1,5 @@
 .root {
-  white-space: normal;
+  white-space: pre-wrap;
   font-family: inherit;
   font-size: inherit;
   line-height: 1.5rem;

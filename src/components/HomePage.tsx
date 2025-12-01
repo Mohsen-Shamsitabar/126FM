@@ -3,9 +3,10 @@ import {
   useChannelDispatch,
   useChannelValue,
 } from "@/contexts/channel";
+import sounds from "@/sounds";
 import classes from "@/styles/home-page.module.css";
 import { ChevronLeft, Music } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { LoopingText } from ".";
 
 type PageProps = {
@@ -67,9 +68,11 @@ const HomeTitle = () => {
       </h1>
 
       <LoopingText
+        duration="10s"
         element={
           <span className={classes["heading-caption"]}>
-            Main Menu <Music size={16} /> Playing Passion of love
+            Main Menu <Music size={16} /> Playing Jay Varton - My kind of
+            illusion
           </span>
         }
       />
@@ -115,6 +118,14 @@ enum HomePageContent {
 const HomePage = () => {
   const { currentChannel } = useChannelValue();
   const [page, setPage] = useState<HomePageContent>(HomePageContent.Menu);
+
+  useEffect(() => {
+    sounds.mainMenu.play();
+
+    return () => {
+      sounds.mainMenu.pause();
+    };
+  }, [currentChannel]);
 
   if (currentChannel) return null;
 

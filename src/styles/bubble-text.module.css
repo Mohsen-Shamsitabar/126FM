@@ -1,13 +1,14 @@
 .root {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: center;
   line-height: 1.5rem;
+
+  gap: 0.5rem;
 }
 
 .author {
-  margin-right: 0.5rem;
-  width: 5rem;
-  flex-shrink: 0;
+  color: var(--text-secondary-color);
 }
 
 .text {

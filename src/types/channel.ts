@@ -5,6 +5,7 @@ export type Channel = {
   currentProgram: string;
   type: ChannelType;
   content: ChannelContent[];
+  soundtrack?: Howl;
   encrypted?: boolean;
 };
 
