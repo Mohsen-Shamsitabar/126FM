@@ -6,7 +6,7 @@ import { defineConfig } from "vite";
 export default defineConfig({
   plugins: [react()],
   build: { outDir: "./dist" },
-  base: "",
+  base: "/126fm/",
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
