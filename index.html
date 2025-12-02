@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link
       rel="icon"
-      href="./favicon.ico"
+      href="/favicon.ico"
     />
     <link
       rel="apple-touch-icon"
@@ -30,8 +30,17 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self';
+           img-src 'self' data:;
+           style-src 'self' 'unsafe-inline';
+           script-src 'self';
+           connect-src 'self';
+           media-src 'self' data:"
+    />
     <title>126fm</title>
-    <script type="module" crossorigin src="./assets/index-C96brV26.js"></script>
+    <script type="module" crossorigin src="./assets/index-CE009t96.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-Cl0GxBFV.css">
   </head>
   <body>
