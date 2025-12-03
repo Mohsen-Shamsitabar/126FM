@@ -28,12 +28,15 @@
     />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self';
-           img-src 'self' data:;
-           style-src 'self' 'unsafe-inline';
-           script-src 'self';
-           connect-src 'self';
-           media-src 'self' data:"
+      content="
+      default-src 'self';
+      img-src 'self' data:;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+      font-src 'self' https://fonts.gstatic.com;
+      script-src 'self';
+      connect-src 'self';
+      media-src 'self' data:
+    "
     />
     <title>126fm</title>
   </head>
